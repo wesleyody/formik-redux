@@ -1,0 +1,23 @@
+{
+  "name": "formik-redux",
+  "version": "0.0.1",
+  "description": "Formik + Redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesleyody/formik-redux.git"
+  },
+  "keywords": [
+    "formik",
+    "redux"
+  ],
+  "author": "wesleyody@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wesleyody/formik-redux/issues"
+  },
+  "homepage": "https://github.com/wesleyody/formik-redux#readme"
+}
