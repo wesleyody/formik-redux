@@ -23,7 +23,12 @@
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0"
+  },
+  "dependencies": {
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
   }
 }
