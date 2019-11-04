@@ -20,6 +20,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var mapStateToProps = function mapStateToProps(state, props) {
+  console.log(state);
   return {
     submitting: (0, _selectors.isSubmitting)(props.form)(state),
     error: (0, _selectors.getSubmitError)(props.form)(state)
