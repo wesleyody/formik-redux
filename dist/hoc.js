@@ -19,17 +19,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var mapStateToProps = function mapStateToProps(state, props) {
-  console.log(props);
-  return {
-    submitting: (0, _selectors.isSubmitting)(props.form)(state),
-    error: (0, _selectors.getSubmitError)(props.form)(state)
+var mapStateToProps = function mapStateToProps(form) {
+  return function (state) {
+    return {
+      submitting: (0, _selectors.isSubmitting)(form)(state),
+      error: (0, _selectors.getSubmitError)(form)(state)
+    };
   };
 };
 
 var Hoc = function Hoc(options) {
   return function (WrappedComponent) {
-    return (0, _recompose.compose)((0, _reactRedux.connect)(mapStateToProps), (0, _formik.withFormik)(_objectSpread({
+    return (0, _recompose.compose)((0, _reactRedux.connect)(mapStateToProps(options.form)), (0, _formik.withFormik)(_objectSpread({
       displayName: options.form
     }, options)))(WrappedComponent);
   };

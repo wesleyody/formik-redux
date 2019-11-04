@@ -4,17 +4,16 @@ import { compose } from "recompose";
 
 import { isSubmitting, getSubmitError } from "./selectors";
 
-const mapStateToProps = ( state, props ) => {
-    console.log( props );
+const mapStateToProps = form => state => {
     return ({
-        submitting: isSubmitting( props.form )( state ),
-        error: getSubmitError( props.form )( state )
+        submitting: isSubmitting( form )( state ),
+        error: getSubmitError( form )( state )
     });
 };
 
 const Hoc = options => WrappedComponent => {
     return compose(
-        connect( mapStateToProps ),
+        connect( mapStateToProps( options.form ) ),
         withFormik({ displayName: options.form, ...options })
     )( WrappedComponent );
 };
