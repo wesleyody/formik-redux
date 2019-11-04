@@ -27,11 +27,25 @@ Object.defineProperty(exports, "reducer", {
     return _reducers["default"];
   }
 });
+Object.defineProperty(exports, "isSubmitting", {
+  enumerable: true,
+  get: function get() {
+    return _selectors.isSubmitting;
+  }
+});
+Object.defineProperty(exports, "getSubmitError", {
+  enumerable: true,
+  get: function get() {
+    return _selectors.getSubmitError;
+  }
+});
 
 var _actions = require("./actions");
 
 var _hoc = _interopRequireDefault(require("./hoc"));
 
 var _reducers = _interopRequireDefault(require("./reducers"));
+
+var _selectors = require("./selectors");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

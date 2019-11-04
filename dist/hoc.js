@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 var _formik = require("formik");
 
 var _reactRedux = require("react-redux");
@@ -12,6 +14,8 @@ var _reactRedux = require("react-redux");
 var _recompose = require("recompose");
 
 var _selectors = require("./selectors");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -36,5 +40,8 @@ var Hoc = function Hoc(options) {
   };
 };
 
+Hoc.propTypes = {
+  form: _propTypes["default"].string.isRequired
+};
 var _default = Hoc;
 exports["default"] = _default;
