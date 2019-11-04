@@ -21,7 +21,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var mapStateToProps = function mapStateToProps(state, props) {
   return {
-    isSubmitting: (0, _selectors.isSubmitting)(props.form)(state),
+    submitting: (0, _selectors.isSubmitting)(props.form)(state),
     error: (0, _selectors.getSubmitError)(props.form)(state)
   };
 };
