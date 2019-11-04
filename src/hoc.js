@@ -5,7 +5,7 @@ import { compose } from "recompose";
 import { isSubmitting, getSubmitError } from "./selectors";
 
 const mapStateToProps = ( state, props ) => {
-    console.log( state );
+    console.log( props );
     return ({
         submitting: isSubmitting( props.form )( state ),
         error: getSubmitError( props.form )( state )
