@@ -10,3 +10,9 @@ export const stopSubmit = ( form, error ) => ({
     payload: form,
     error
 });
+
+export const RESET = "@@formikRedux/RESET";
+export const reset = form => ({
+    type: RESET,
+    payload: form
+});
