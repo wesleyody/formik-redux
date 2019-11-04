@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "reset", {
+  enumerable: true,
+  get: function get() {
+    return _actions.reset;
+  }
+});
 Object.defineProperty(exports, "startSubmit", {
   enumerable: true,
   get: function get() {

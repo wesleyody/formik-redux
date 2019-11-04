@@ -34,6 +34,12 @@ function _default() {
         error: action.error
       }));
 
+    case actions.RESET:
+      return _objectSpread({}, state, _defineProperty({}, action.payload, {
+        submitting: false,
+        error: null
+      }));
+
     default:
       return state;
   }

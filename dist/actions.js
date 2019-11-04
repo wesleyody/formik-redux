@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.stopSubmit = exports.STOP_SUBMIT = exports.startSubmit = exports.START_SUBMIT = void 0;
+exports.reset = exports.RESET = exports.stopSubmit = exports.STOP_SUBMIT = exports.startSubmit = exports.START_SUBMIT = void 0;
 var START_SUBMIT = "@@formikRedux/START_SUBMIT";
 exports.START_SUBMIT = START_SUBMIT;
 
@@ -27,3 +27,14 @@ var stopSubmit = function stopSubmit(form, error) {
 };
 
 exports.stopSubmit = stopSubmit;
+var RESET = "@@formikRedux/RESET";
+exports.RESET = RESET;
+
+var reset = function reset(form) {
+  return {
+    type: RESET,
+    payload: form
+  };
+};
+
+exports.reset = reset;
