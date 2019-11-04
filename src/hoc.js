@@ -4,10 +4,13 @@ import { compose } from "recompose";
 
 import { isSubmitting, getSubmitError } from "./selectors";
 
-const mapStateToProps = ( state, props ) => ({
-    submitting: isSubmitting( props.form )( state ),
-    error: getSubmitError( props.form )( state )
-});
+const mapStateToProps = ( state, props ) => {
+    console.log( state );
+    return ({
+        submitting: isSubmitting( props.form )( state ),
+        error: getSubmitError( props.form )( state )
+    });
+};
 
 const Hoc = options => WrappedComponent => {
     return compose(
