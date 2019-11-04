@@ -18,6 +18,14 @@ export default function ( state = {}, action ) {
                     error: action.error
                 }
             };
+        case actions.RESET:
+            return {
+                ...state,
+                [ action.payload ]: {
+                    submitting: false,
+                    error: null
+                }
+            };
         default:
             return state;
     }
