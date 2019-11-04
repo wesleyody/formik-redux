@@ -38,5 +38,8 @@
     "react-redux": "^7.1.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.4"
+  },
+  "peerDependencies": {
+    "react": "16.x"
   }
 }
