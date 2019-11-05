@@ -95,7 +95,6 @@ var Hoc = function Hoc(_ref) {
       }, {
         key: "componentWillUnmount",
         value: function componentWillUnmount() {
-          this.props.resetForm();
           this.props.resetState();
         }
       }, {

@@ -30,7 +30,6 @@ const Hoc = ({ form, ...options }) => WrappedComponent => {
         }
 
         componentWillUnmount () {
-            this.props.resetForm();
             this.props.resetState();
         }
 
