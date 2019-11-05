@@ -1,6 +1,6 @@
 {
   "name": "formik-redux",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Formik + Redux",
   "files": [
     "dist"
