@@ -43,13 +43,13 @@ So here we are, dispatching actions now can trigger the Formik submit.
 
 ## Getting Started
 
-#### Install
+### Install
 ```
 npm install --save formik-redux
 ```
-*You must have installed `react@16.x`.*
+*You must have installed `formik@2.x` and `react@16.x`.*
 
-#### Usage
+### Usage
 In your root reducer, you must add our reducer:
 ```javascript
 import { reducer as formik } from "formik-redux"; // it must be formik the reducer name
@@ -72,3 +72,55 @@ const DummyForm = props => <form onSubmit={ props.handleSubmit }></form>;
 export default withForm({ form: "heygoodlooking" })( DummyForm );
 ```
 You `must` pass the form prop. All the other props will be passed to Formik (see [docs](https://jaredpalmer.com/formik/docs/api/withFormik) for more details).
+
+To indicate to redux that the submit started or stopped, you must dispatch the appropriate action.
+
+```javascript
+import { startSubmit, stopSubmit, withForm } from "formik-redux";
+import { connect } from "react-redux";
+import { compose } from "recompose";
+
+const FORM_NAME = "myBeautifulForm";
+
+const DummyForm = ({ handleSubmit, submitting }) => (
+    <form onSubmit={ handleSubmit }>
+        <button type="submit" disabled={ submitting }></button>
+    </form>
+);
+
+async function onSubmit ( values, { props } ) {
+    await props.dispatch( startSubmit( FORM_NAME ) );
+    await props.dispatch( stopSubmit( FORM_NAME ) );
+};
+
+export default compose(
+    connect( null, {
+        startSubmit,
+        stopSubmit
+    }),
+    withForm({
+        form: FORM_NAME,
+        handleSubmit: onSubmit
+    })
+)( DummyForm );
+```
+
+As you can see in the example above, is injected the prop `submitting` in the component to indicate if the submit finished or not.
+
+#### Submit error
+If there was some problem in the submit, to pass the error, you should use the second argument of the `stopSubmit` action.
+
+```javascript
+const DummyForm = ({ handleSubmit, error, submitting }) => (
+    <form onSubmit={ handleSubmit }>
+        <button type="submit" disabled={ submitting }></button>
+        { error && <span>{ error }</span> }
+    </form>
+);
+
+async function onSubmit ( values, { props } ) {
+    await props.dispatch( stopSubmit( FORM_NAME, "Something went wrong" ) );
+};
+```
+
+In the component will be injected the prop `error`.
