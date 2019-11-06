@@ -34,13 +34,13 @@
     "eslint-plugin-react": "^7.16.0"
   },
   "dependencies": {
-    "formik": "^2.0.3",
     "prop-types": "^15.7.2",
     "react-redux": "^7.1.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.4"
   },
   "peerDependencies": {
+    "formik": "2.x",
     "react": "16.x"
   }
 }
