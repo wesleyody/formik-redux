@@ -1,0 +1,6 @@
+src/
+node_modules/
+.github/
+.babelrc
+.eslintrc.yml
+package-lock.json
