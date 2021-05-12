@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,19 +26,19 @@
   },
   "homepage": "https://github.com/wesleyody/formik-redux#readme",
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.6.3",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.16.0"
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
+    "@babel/preset-env": "^7.14.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-react": "^7.23.2"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-redux": "^7.1.1",
+    "react-redux": "^7.2.4",
     "recompose": "^0.30.0",
-    "redux": "^4.0.4"
+    "redux": "^4.1.0"
   },
   "peerDependencies": {
     "formik": "2.x",

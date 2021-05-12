@@ -20,6 +20,10 @@ globals:
   appConfig: false
   google: false
 
+settings:
+  react:
+    version: "16.x"
+
 rules:
   # --------------------------------------------------------------------------------------------------------------------
   # Possible errors
