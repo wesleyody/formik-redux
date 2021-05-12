@@ -9,6 +9,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "lint": "eslint src",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
