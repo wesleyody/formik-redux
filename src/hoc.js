@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { withFormik } from "formik";
 import { PureComponent } from "react";
 import { connect } from "react-redux";
-import { compose } from "recompose";
+import { compose } from "redux";
 
 import { reset } from "./actions";
 import { isSubmitting, getSubmitError } from "./selectors";
