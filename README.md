@@ -42,11 +42,16 @@ So here we are, dispatching actions now can trigger the Formik submit.
 
 ## Getting Started
 
+### Prerequisites
+- `formik@2.x`
+- `react@16.x`
+- `react-redux@7`
+- `redux@4`
+
 ### Install
 ```
 npm install --save formik-redux
 ```
-*You must have installed `formik@2.x` and `react@16.x`.*
 
 ### Usage
 In your root reducer, you must add our reducer:
