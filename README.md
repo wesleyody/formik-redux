@@ -6,7 +6,7 @@ The start and stop of the form submit, is controlled by de redux state while all
 
 When you submit your form, you should:
 ```javascript
-import { compose } from "recompose";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { startSubmit, stopSubmit, withForm } from "formik-redux";
 
@@ -35,7 +35,6 @@ export default compose(
     })
 )( DummyForm );
 ```
-This examples uses [recompose](https://github.com/acdlite/recompose)
 
 ## Motivation
 Redux-form has became too much complex and lacks performance, in the other hand, Formik is much more simple and has better performance because every *keystroke* doesn't trigger a render event in every component. But it's not that simple to control the form submit with Formik. When you use, `redux-saga`, for instance, you won't be able to control the form from there.
