@@ -44,7 +44,7 @@ So here we are, dispatching actions now can trigger the Formik submit.
 
 ### Prerequisites
 - `formik@2.x`
-- `react@16.x`
+- `react@16.x || 17.x || 18.x`
 - `react-redux@7`
 - `redux@4`
 
@@ -67,6 +67,7 @@ export const appReducer = combineReducers({
 });
 ```
 
+#### HOC
 In your form component, use the hoc:
 ```javascript
 import { withForm } from "formik-redux";
@@ -75,7 +76,7 @@ const DummyForm = props => <form onSubmit={ props.handleSubmit }></form>;
 
 export default withForm({ form: "heygoodlooking" })( DummyForm );
 ```
-You `must` pass the form prop. All the other props will be passed to Formik (see [docs](https://jaredpalmer.com/formik/docs/api/withFormik) for more details).
+You `must` pass the form prop. All the other props will be passed to Formik (see [docs](https://formik.org/docs/api/withFormik) for more details).
 
 To indicate to redux that the submit started or stopped, you must dispatch the appropriate action.
 
@@ -111,7 +112,7 @@ export default compose(
 
 As you can see in the example above, is injected the prop `submitting` in the component to indicate if the submit finished or not.
 
-#### Submit error
+##### Submit error
 If there was some problem in the submit, to pass the error, you should use the second argument of the `stopSubmit` action.
 
 ```javascript
@@ -128,3 +129,22 @@ async function onSubmit ( values, { props } ) {
 ```
 
 In the component will be injected the prop `error`.
+
+#### Hook
+To use the hook, you must import `useForm` and pass the prop `form`.
+
+```javascript
+import { useForm } from "formik-redux";
+
+const FORM_NAME = "foobar";
+
+const DummyForm = () => {
+    const { error, submitting, ...formikProps } = useForm({
+        form: FORM_NAME,
+        // ...form props of Formik
+    });
+};
+
+```
+
+The hook will return the props `error`, `submitting` and the other formik props (see [docs](https://formik.org/docs/api/useFormik) for more details).
