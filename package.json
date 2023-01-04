@@ -27,20 +27,21 @@
   },
   "homepage": "https://github.com/wesleyody/formik-redux#readme",
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-env": "^7.14.1",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.26.0",
-    "eslint-plugin-react": "^7.23.2"
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.7",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-transform-react-jsx": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "eslint": "^8.31.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "dependencies": {
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "formik": "2.x",
-    "react": "16.x",
+    "react": "16.x || 17.x || 18.x",
     "react-redux": "7.x",
     "redux": "4.x"
   }
