@@ -42,7 +42,7 @@
   "peerDependencies": {
     "formik": "2.x",
     "react": "16.x || 17.x || 18.x",
-    "react-redux": "7.x",
+    "react-redux": "7.x || 8.x",
     "redux": "4.x"
   }
 }
