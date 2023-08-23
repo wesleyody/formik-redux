@@ -1,11 +1,12 @@
 root: true
 
-parser: "@babel/eslint-parser"
+parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: 6
-  sourceType: module
+  project: "./tsconfig.json"
   ecmaFeatures:
     jsx: true
+    tsx: true
 
 env:
   browser: true
@@ -15,9 +16,11 @@ env:
 
 plugins:
   - react
+  - "@typescript-eslint"
 
 extends:
   - plugin:react-hooks/recommended
+  - plugin:@typescript-eslint/recommended
 
 globals:
   appConfig: false
@@ -97,10 +100,6 @@ rules:
         afterColon: true
         mode: strict
   keyword-spacing: error
-  max-len:
-    - error
-    - code: 120
-      ignoreUrls: true
   max-params:
     - error
     - max: 6
@@ -143,3 +142,8 @@ rules:
   # --------------------------------------------------------------------------------------------------------------------
   react/prefer-es6-class: error
   react/jsx-uses-vars: error
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # Typescript
+  # --------------------------------------------------------------------------------------------------------------------
+  "@typescript-eslint/no-explicit-any": off

@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import { useFormik } from "formik";
+import { FormikProps, FormikConfig, FormikValues, useFormik } from "formik";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,7 +6,16 @@ import { reset } from "./actions";
 import { isSubmitting, getSubmitError } from "./selectors";
 import { usePrevious } from "./utils";
 
-export const useForm = ({ form, ...props }) => {
+type UseFormProps< T > = FormikConfig< T > & {
+    form: string;
+}
+
+type UseFormValues< T > = FormikProps< T > & {
+    submitting: boolean;
+    error: string | undefined;
+}
+
+export function useForm< T extends FormikValues > ({ form, ...props }: UseFormProps< T > ): UseFormValues< T > {
     const dispatch = useDispatch();
 
     const formik = useFormik( props );
@@ -37,10 +45,6 @@ export const useForm = ({ form, ...props }) => {
         submitting,
         error,
     };
-};
-
-useForm.propTypes = {
-    form: PropTypes.string.isRequired
-};
+}
 
 export default { useForm };

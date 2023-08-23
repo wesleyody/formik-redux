@@ -1,6 +1,12 @@
 import * as actions from "./actions";
 
-export default function ( state = {}, action ) {
+type Action = {
+    type: string;
+    payload: string;
+    error: string | undefined;
+}
+
+export default function ( state = {}, action: Action ) {
     switch ( action.type ) {
         case actions.START_SUBMIT:
             return {
