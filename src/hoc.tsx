@@ -1,5 +1,5 @@
 import React from "react";
-import { FormikValues, withFormik, WithFormikConfig } from "formik";
+import { FormikProps, FormikValues, withFormik, WithFormikConfig } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 
 import { reset } from "./actions";
@@ -10,16 +10,16 @@ interface HocProps< Props, Values extends FormikValues = FormikValues, Deprecate
     form: string;
 }
 
-type InjectedProps = {
+type InjectedProps< T extends FormikValues > = FormikProps< T > & {
     submitting: boolean;
     error: string | undefined;
 };
 
 function withForm< T extends object, Values extends FormikValues, Payload = Values > ( formProps: HocProps< T, Values, Payload > ) {
-    return ( WrappedComponent: React.ComponentType< T & InjectedProps > ) => {
+    return ( WrappedComponent: React.ComponentType< InjectedProps< Values > > ) => {
         const { form, ...options } = formProps;
 
-        const Component = ( props: T & FormikValues ) => {
+        const Component = ( props: FormikProps< Values > ) => {
             const dispatch = useDispatch();
 
             const submitting = useSelector( isSubmitting( form ) );
