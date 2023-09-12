@@ -148,3 +148,25 @@ const DummyForm = () => {
 ```
 
 The hook will return the props `error`, `submitting` and the other formik props (see [docs](https://formik.org/docs/api/useFormik) for more details).
+
+##### Form
+To use hooks with Formik Context you need to wrap your component.
+
+```javascript
+import { Field } from "formik";
+import { Form, useForm } from "formik-redux";
+
+const DummyForm = () => {
+    const formik = useForm({
+        form: FORM_NAME,
+        // ...form props of Formik
+    });
+
+    return (
+        <Form formik={ formik }>
+            <Field name="test" />
+        </Form>
+    );
+};
+
+```
