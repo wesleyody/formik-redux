@@ -10,6 +10,14 @@ type FormProps< P > = Pick<
 };
 
 function Form< P > ({ children, formik, ...props }: FormProps< P >) {
+    const resetForm = React.useMemo( () => formik.resetForm, [ formik.resetForm ] );
+
+    React.useEffect( () => {
+        return () => {
+            resetForm();
+        };
+    }, [ resetForm ] );
+
     return (
         <FormikProvider value={ formik }>
             <form onReset={ formik.handleReset } onSubmit={ formik.handleSubmit } { ...props }>
