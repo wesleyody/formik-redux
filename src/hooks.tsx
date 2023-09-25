@@ -8,6 +8,7 @@ import { usePrevious } from "./utils";
 
 type UseFormProps< T > = FormikConfig< T > & {
     form: string;
+    onSubmitSuccess?: () => void;
 }
 
 type UseFormValues< T > = FormikProps< T > & {
@@ -15,7 +16,7 @@ type UseFormValues< T > = FormikProps< T > & {
     error: string | undefined;
 }
 
-export function useForm< T extends FormikValues > ({ form, ...props }: UseFormProps< T > ): UseFormValues< T > {
+export function useForm< T extends FormikValues > ({ form, onSubmitSuccess, ...props }: UseFormProps< T > ): UseFormValues< T > {
     const dispatch = useDispatch();
 
     const formik = useFormik( props );
@@ -33,8 +34,9 @@ export function useForm< T extends FormikValues > ({ form, ...props }: UseFormPr
         if ( prevSubmitting && !submitting && !error ) {
             formik.resetForm();
             resetState();
+            onSubmitSuccess && onSubmitSuccess();
         }
-    }, [ error, submitting, prevSubmitting, resetState, formik ] );
+    }, [ error, submitting, prevSubmitting, onSubmitSuccess, resetState, formik ] );
 
     useEffect( () => {
         return resetState;
